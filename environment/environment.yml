@@ -1,0 +1,23 @@
+
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.12.4
+  - scikit-learn
+  - pandas
+  - numpy
+  - psycopg2
+  - sqlalchemy
+  - statsmodels
+  - matplotlib
+  - seaborn
+  - networkx
+  - scipy
+  - pip
+  - postgresql 
+  - flake8
+  - pip:
+      - pylca 
+      - eralchemy
+
