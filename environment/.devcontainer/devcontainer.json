@@ -14,7 +14,7 @@
 	"forwardPorts": [5432],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "conda env update -f environment.yml && git config --global user.email '804962881z@gmail.com' && git config --global user.name 'Bobby-Zhu'",
+	"postCreateCommand": "conda env update -f environment.yml && git config --global user.email '<github email>' && git config --global user.name '<github username>'",
 	// Configure tool-specific properties.
 	// "customizations": {},
 	// Add customizations for VS Code settings.
@@ -41,7 +41,7 @@
 	},
 
 	"mounts": [
-			"source=/Users/ahmostafa/Desktop/DSC 180A/mimic-iii-clinical-database-1.4/mimic-data,target=/workspace/data,type=bind,consistency=cached"
+			"source=/path/to/mimic/database/folder/mimic-data,target=/workspace/data,type=bind,consistency=cached"
 		],
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
