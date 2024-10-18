@@ -112,6 +112,8 @@ You can also manage the PostgreSQL database using DBeaver. Here’s how to conne
    - Password: `postgres`
 
 For troubleshooting, refer to the `DBeaver Connection Setup` document.
+---
+For further instructions if you encountered any errors, please check out our detailed documentation in the following drive: [![Google Drive](https://img.shields.io/badge/Google%20Drive-Download-blue?style=for-the-badge&logo=google-drive)]([https://drive.google.com/your-google-drive-link](https://drive.google.com/drive/folders/1LXyeajgaP6ZGrZ3qHgaqk_2KS-99jof9?usp=share_link))
 
 ---
 
@@ -123,10 +125,17 @@ To add local files to the Docker container, update your `docker-compose.yml` and
 services:
   app:
     volumes:
-      - ./mimic-data:/mnt/mimic-data:cached
+      - /path/to/mimic/database/folder/mimic-data:/mnt/mimic-data:cached
 ```
 
 For detailed steps on mounting files, see the `Adding a Local File Mount` document.
+
+### Setup Summary:
+
+Please ensure that you have modified the required paths to the data. Here are the files that you should have modified by now:
+
+- devcontainer.json (mounts section)
+- docker-compose.yml (volumes section)
 
 ---
 
