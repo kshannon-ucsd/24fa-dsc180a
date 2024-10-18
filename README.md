@@ -92,7 +92,7 @@ Once inside the dev container, you will set up and connect to the PostgreSQL dat
 - **Connect to the Database**:  
   ```bash
   psql -U postgres -d mimic
-  SET search_path TO mimiciii;
+  ALTER DATABASE mimic SET search_path TO mimiciii;
   ```
 
 For local access, ensure your Docker setup exposes port 5432 and use the `psql` command from your local machine to connect. For full instructions, see the `Accessing PostgreSQL Inside Container` document.
