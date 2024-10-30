@@ -35,14 +35,14 @@
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"mtxr.sqltools",
-				"mtxr.sqltools-driver-pg"
+				"mtxr.sqltools-driver-pg",
+				"ms-toolsai.jupyter"
 			]
 		}
 	},
 
-	"mounts": [
-			"source=/path/to/mimic/database/folder/mimic-data,target=/workspace/data,type=bind,consistency=cached"
-		],
+	// "mounts": [],
+
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "root"

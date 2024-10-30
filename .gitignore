@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # environment
-environment/
+# environment/
 
 # MacOS file
 .DS_Store
@@ -87,6 +87,9 @@ target/
 # IPython
 profile_default/
 ipython_config.py
+
+# Ignore the data folder inside LCA
+LCA_Analysis/data/
 
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
