@@ -10,7 +10,7 @@ services:
 
     volumes:
       - ../..:/workspaces:cached
-      - /path/to/mimic/database/folder/:/mnt/mimic-data:ro
+      - /Users/sherry/Desktop/practice_dev_container/mimic-iii-clinical-database-1.4:/mnt/mimic-data:ro
 
 
     # Overrides default command so things don't shut down after the process ends.
