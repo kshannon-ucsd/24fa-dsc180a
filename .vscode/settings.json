@@ -1,3 +1,13 @@
 {
-    "sqltools.connections": []
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "haotingdian",
+            "database": "mimic",
+            "username": "postgres"
+        }
+    ]
 }
