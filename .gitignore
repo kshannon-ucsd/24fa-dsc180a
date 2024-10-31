@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # environment
-environment/
+# environment/
 
 # MacOS file
 .DS_Store
