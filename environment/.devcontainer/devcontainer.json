@@ -14,7 +14,7 @@
 	"forwardPorts": [5432],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "conda env update -f environment.yml && git config --global user.email '<github email>' && git config --global user.name '<github username>'",
+	"postCreateCommand": "conda env update -f environment.yml && git config --global user.email ${localEnv:GITHUB_EMAIL} && git config --global user.name '${localEnv:GITHUB_USER_NAME}'",
 	// Configure tool-specific properties.
 	// "customizations": {},
 	// Add customizations for VS Code settings.
