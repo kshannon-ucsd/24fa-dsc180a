@@ -1,10 +1,7 @@
 # README for LCA Analysis Project
 
 ## Project Overview
-This project focuses on performing Latent Class Analysis (LCA) to identify subgroups within a population based on patient characteristics. The analysis is aimed at understanding and categorizing different types of patient admissions and their associated features. The results of this analysis can be useful for healthcare research, policy-making, and targeted intervention strategies.
-
-## What is LCA?
-Latent Class Analysis (LCA) is a statistical technique used to discover hidden subgroups within a population by analyzing patterns in observed data. In healthcare and social sciences, LCA helps identify groups that share similar characteristics, which may not be immediately visible from raw data. Each group, or "class," represents individuals with similar patterns in their responses or attributes.
+This project focuses on performing Latent Class Analysis (LCA) that is utilized to identify and categorize distinct subgroups of patient admissions based on shared characteristics. By analyzing various patient data attributes (such as age, diagnoses, comorbidities, and admission type), LCA helps uncover patterns that may not be immediately visible. The subgroups derived from LCA can offer insights into the heterogeneity within the patient population and inform strategies tailored to each subgroup’s unique profile.
 
 ## Data and Features Used
 The analysis is based on the following patient characteristics:
@@ -58,5 +55,3 @@ The final outputs, including subgroup characteristics and LCA plots, can be foun
 2. Run `LCA_post_analysis.ipynb` to interpret and visualize the results.
 3. Review the generated plots in the `plots/` directory for a comprehensive understanding of the subgroups.
 
-## Conclusion
-This LCA project provides a framework for analyzing patient data to uncover hidden subgroups based on key characteristics. It can be extended to include additional features or adapted for other datasets to support various types of subgroup analyses.
