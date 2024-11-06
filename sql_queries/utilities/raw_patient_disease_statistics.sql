@@ -126,4 +126,4 @@
         depression
     FROM
         patient_diseases
-) TO '/workspaces/environment/poLCA_patient_statistics.csv' WITH CSV HEADER;  -- Export result to CSV with headers
+) TO '/workspaces/environment/LCA_Analysis/data/raw_data/LCA_raw_data.csv' WITH CSV HEADER;  -- Export result to CSV with headers
