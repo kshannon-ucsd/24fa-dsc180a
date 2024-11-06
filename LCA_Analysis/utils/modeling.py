@@ -1,5 +1,5 @@
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import cross_val_score, cross_val_predict, StratifiedKFold
+from sklearn.model_selection import cross_val_predict, StratifiedKFold
 from sklearn.metrics import roc_curve, auc
 
 def calculate_auc_for_class(df, class_label, feature_columns, cv_splits=10):
