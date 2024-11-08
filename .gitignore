@@ -5,6 +5,7 @@ __pycache__/
 
 # environment
 # environment/
+.vscode
 
 # MacOS file
 .DS_Store
