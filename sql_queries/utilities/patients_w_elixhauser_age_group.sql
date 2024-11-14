@@ -1,5 +1,5 @@
 -- SQL command to export selected patient data with Elixhauser comorbidity indicators
-\COPY (
+COPY (
     SELECT
         elixhauser_quan.*,  -- Select all elixhauser comorbidity indicators
         CASE  -- Determine the age group based on age at admission
