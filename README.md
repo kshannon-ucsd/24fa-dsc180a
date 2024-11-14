@@ -25,6 +25,39 @@ The MIMIC-III database is a freely accessible, de-identified dataset containing 
 For more detailed instructions, see the official MIMIC-III documentation at [https://mimic.physionet.org](https://mimic.physionet.org).
 
 ---
+
+## Repository Structure
+
+This repository is organized into several key components, each designed to support the project's objectives of data preprocessing, analysis, and reproducibility:
+
+### **1. Environment Setup**
+- **Purpose**: Provides the infrastructure for a containerized development environment using Docker and VS Code.
+- **Location**: `environment/`
+- **Key Files**:
+  - `docker-compose.yml`: Configures Docker containers for the app and PostgreSQL database.
+  - `devcontainer.json`: Defines settings for the VS Code development container.
+  - `.env.example`: A template for environment variables, including PostgreSQL and dataset paths.
+  - `test_dependencies.py`: Ensures Python libraries are properly installed.
+  - `test_connection.py`: Verifies PostgreSQL database connectivity and functionality.
+
+### **2. Data Analysis**
+- **Purpose**: Focuses on reproducing paper findings using patient data extracted from the MIMIC-III database.
+- **Location**: `sql_queries/analysis/`
+- **Key Components**:
+  - **`table_one_statistics/`**: Contains SQL scripts for generating patient statistics categorized by age, gender, comorbidities, and admission type. These scripts aim to replicate and enhance Table One from the referenced paper.
+  - **Utility Scripts**: Found in `sql_queries/utilities/`, these scripts create foundational views (`included_patients` and comorbidity counts) to ensure consistent and efficient analyses across multiple SQL queries.
+
+### **3. Latent Class Analysis (LCA)**
+- **Purpose**: Applies Latent Class Analysis to identify and categorize subgroups of ICU patients based on shared characteristics.
+- **Location**: `LCA_Analysis/`
+- **Key Files**:
+  - `LCA_analysis.ipynb`: Performs the primary LCA, including data preprocessing, model training, and determining the optimal number of latent classes.
+  - `LCA_post_analysis.ipynb`: Handles post-analysis, visualizing the results and interpreting subgroup characteristics.
+  - `data/`: Stores raw and processed datasets used in the LCA workflow.
+  - `utils/`: A directory containing reusable utility functions that support data handling, model training, and result visualization in the analysis notebooks.
+  - `plots/`: Contains visual outputs, such as subgroup distributions and key insights.
+
+
 ## Prerequisites
 
 Before setting up the development environment, ensure that you have the following tools installed:
@@ -54,31 +87,14 @@ Before setting up the development environment, ensure that you have the followin
      ```
    - For Windows: Install via [PostgreSQL Windows Installer](https://www.postgresql.org/download/windows/).
 
-5. **PhysioNet Account**  
-   You need a PhysioNet account to access the MIMIC dataset. Complete the credentialing process on [PhysioNet](https://physionet.org) and the required CITI training.
 ---
 
 ## Development Environment Setup
 
 ### 1. Dev Container Setup
 
-Our development environment leverages Docker and VS Code for consistent project builds. Here’s how to set up the environment:
+Follow the steps in the [environment README.md](environment/README.md) to configure the containerized environment and verify dependencies.
 
-- **Clone the Repository**:  
-  ```bash
-  git clone https://github.com/Bobby-Zhu/practice_dev_container.git
-  cd practice_dev_container/.devcontainer
-  ```
-
-- **Run the Docker Image**:  
-  ```bash
-  docker-compose up --build
-  ```
-
-- **Attach VS Code to the Container**:
-  In VS Code, use the command palette (Ctrl+Shift+P or Cmd+Shift+P) and select **Dev Containers: Attach to Running Container**.
-
-More details on the setup process can be found in the `Setting up Dev Container` documentation.
 
 ### 2. PostgreSQL Database Setup
 
@@ -112,30 +128,10 @@ You can also manage the PostgreSQL database using DBeaver. Here’s how to conne
    - Password: `postgres`
 
 For troubleshooting, refer to the `DBeaver Connection Setup` document.
+
 ---
 For further instructions if you encountered any errors, please check out our detailed documentation in the following drive: [![Google Drive](https://img.shields.io/badge/Google%20Drive-Download-blue?style=for-the-badge&logo=google-drive)](https://drive.google.com/drive/folders/1LXyeajgaP6ZGrZ3qHgaqk_2KS-99jof9?usp=share_link)
 
----
-
-## Local File Mount
-
-To add local files to the Docker container, update your `docker-compose.yml` and `devcontainer.json` files to include the local mount path. Use the following configurations:
-
-```yaml
-services:
-  app:
-    volumes:
-      - /path/to/mimic/database/folder/mimic-data:/mnt/mimic-data:cached
-```
-
-For detailed steps on mounting files, see the `Adding a Local File Mount` document.
-
-### Setup Summary:
-
-Please ensure that you have modified the required paths to the data. Here are the files that you should have modified by now:
-
-- devcontainer.json (mounts section)
-- docker-compose.yml (volumes section)
 
 ---
 
