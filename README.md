@@ -127,7 +127,8 @@ You can also manage the PostgreSQL database using DBeaver. Here’s how to conne
    - Username: `postgres`
    - Password: `postgres`
 
-#### For troubleshooting, refer to the `DBeaver Connection Setup` document.
+For troubleshooting, refer to the `DBeaver Connection Setup` document.
+
 ---
 For further instructions if you encountered any errors, please check out our detailed documentation in the following drive: [![Google Drive](https://img.shields.io/badge/Google%20Drive-Download-blue?style=for-the-badge&logo=google-drive)](https://drive.google.com/drive/folders/1LXyeajgaP6ZGrZ3qHgaqk_2KS-99jof9?usp=share_link)
 
