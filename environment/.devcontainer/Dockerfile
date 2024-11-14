@@ -13,7 +13,7 @@ RUN apt-get update && \
 
 
 # Install IRkernel to create an R kernel for Jupyter
-RUN R -e "install.packages(c('IRkernel','reshape2', 'plyr', 'dplyr', 'poLCA', 'ggplot2', 'ggparallel', 'igraph', 'tidyr', 'knitr'), repos='http://cran.rstudio.com/')"
+RUN R -e "install.packages(c('IRkernel','reticulate','reshape2', 'plyr', 'dplyr', 'poLCA', 'ggplot2', 'ggparallel', 'igraph', 'tidyr', 'knitr'), repos='http://cran.rstudio.com/')"
 # Registers the R kernel with Jupyter
 RUN R -e "IRkernel::installspec(user = FALSE)"  
 
