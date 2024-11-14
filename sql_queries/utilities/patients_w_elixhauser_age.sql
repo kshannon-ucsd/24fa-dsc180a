@@ -45,5 +45,5 @@ COPY
         AND elixhauser_quan.psychoses IS NOT NULL
         AND elixhauser_quan.depression IS NOT NULL
     ) 
-TO 'data/patients_w_elixhauser_age.csv'  -- Output file path
+TO '/workspaces/kmeans_clustering/data/patients_w_elixhauser_age.csv'  -- Output file path
 WITH CSV HEADER;  -- Output file format with column headers
