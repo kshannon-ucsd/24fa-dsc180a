@@ -18,7 +18,6 @@
         elixhauser_quan.hadm_id = unique_p.hadm_id
     WHERE 
         unique_p.age_at_admission <= 95  -- Filter out ages above 95
-        -- Additional filters to ensure only patients with non-null values are included
         AND elixhauser_quan.congestive_heart_failure IS NOT NULL
         AND elixhauser_quan.cardiac_arrhythmias IS NOT NULL
         AND elixhauser_quan.valvular_disease IS NOT NULL
@@ -48,5 +47,4 @@
         AND elixhauser_quan.alcohol_abuse IS NOT NULL
         AND elixhauser_quan.drug_abuse IS NOT NULL
         AND elixhauser_quan.psychoses IS NOT NULL
-        AND elixhauser_quan.depression IS NOT NULL
-    ) TO 'data/patients_w_elixhauser_age_group.csv' CSV HEADER;
+        AND elixhauser_quan.depression IS NOT NULL) TO '/workspaces/kmeans_clustering/data/patients_w_elixhauser_age_group.csv' CSV HEADER;
