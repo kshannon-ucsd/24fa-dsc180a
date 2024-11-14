@@ -1,14 +1,15 @@
 import psycopg2
 
+
 def connect_to_postgres():
     """ Connects to the PostgreSQL database running in the 'db' container """
     try:
         # Connect to the PostgreSQL database
         connection = psycopg2.connect(
-            host="db",            # 'db' is the service name of the PostgreSQL container
-            database="postgres",   # The default PostgreSQL database
-            user="postgres",       # Your PostgreSQL username
-            password="postgres"    # Your PostgreSQL password
+            host="db",           
+            database="postgres",
+            user="postgres",     
+            password="postgres"  
         )
 
         # Create a cursor object
@@ -76,6 +77,7 @@ def query_data(cursor):
     except Exception as error:
         print(f"Error querying data: {error}")
 
+
 def check_postgres_version():
     """ Checks and prints the PostgreSQL version """
     connection, cursor = connect_to_postgres()
@@ -101,7 +103,8 @@ def check_postgres_version():
             cursor.close()
         if connection:
             connection.close()
-            
+
+
 def main():
     # Step 1: Connect to PostgreSQL
     connection, cursor = connect_to_postgres()
