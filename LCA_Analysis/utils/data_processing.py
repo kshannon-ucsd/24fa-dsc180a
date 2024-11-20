@@ -168,7 +168,7 @@ def reassign_class_assignment(df):
     return df
 
 # Main Function to Integrate All Processing Steps Before Visualization
-def process_morbidity_data(df, start_column="congestive_heart_failure"):
+def process_morbidity_data(df, classes_map,start_column="congestive_heart_failure"):
     """
     Processes morbidity data by adjusting Elixhauser indices, calculating percentages, 
     and reassigning class assignments.
@@ -184,10 +184,20 @@ def process_morbidity_data(df, start_column="congestive_heart_failure"):
     df = adjust_elixhauser_index(df)
     df = calculate_percentage_within_subgroup(df)
     df = reassign_class_assignment(df)
+
     
     # Final sorting for easier viewing
     df = df.sort_values(by="count_morbidity", ascending=True)
-    
+    df["class_assignment"] = df["class_assignment"].map(classes_map)
     return df
 
-
+def calculate_prevalence(df, condition_columns, subgroup_column="class_assignment"):
+    """
+    Calculate percentages for conditions by subgroups.
+    """
+    percentages = {}
+    for condition in condition_columns:
+        percentages[condition] = (
+            df.groupby(subgroup_column)[condition].mean() * 100
+        )
+    return pd.DataFrame(percentages)
