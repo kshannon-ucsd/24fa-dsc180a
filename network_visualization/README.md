@@ -1,6 +1,6 @@
 # Network Visualization Project
 
-This directory contains the code for generating and visualizing networks based on co-occurrence matrices. It is designed to handle the data outputed from `LCA file` where the co-occurrence of diseases is analyzed.
+This directory contains the code for generating and visualizing networks based on co-occurrence matrices. It is designed to handle the data outputed from `LCA_post_analysis.ipynb` where the co-occurrence of diseases is analyzed.
 
 ## Directory Structure
 
