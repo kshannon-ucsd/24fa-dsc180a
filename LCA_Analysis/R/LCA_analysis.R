@@ -38,7 +38,7 @@ convert_to_factors <- function(df, columns) {
 #' df <- your_dataframe  # Make sure to replace with your data
 #' formula <- as.formula(cbind(admission_type, gender, age_at_admission) ~ 1)
 #' best_models <- find_best_lca_model(df, formula, 8:9)
-find_best_lca_model <- function(df, formula, class_range, seed = 1, max_iter = 7000, n_rep = 5, tol = 1e-5, plot_dir = "plots") {
+find_best_lca_model <- function(df, formula, class_range, seed = 1, max_iter = 7000, n_rep = 5, tol = 1e-5, plot_dir = "../output/plots") {
   # Set seed for reproducibility
   set.seed(seed)
   

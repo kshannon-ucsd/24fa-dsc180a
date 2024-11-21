@@ -8,6 +8,7 @@ __init__.py
 # environment/
 .vscode
 *.csv
+*.png
 mimic-code/
 __pycache__
 .env
@@ -96,9 +97,8 @@ target/
 profile_default/
 ipython_config.py
 
-# Ignore the data folder inside LCA
-LCA_Analysis/data/
-LCA_Analysis/plots/
+
+
 
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
