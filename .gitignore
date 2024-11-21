@@ -12,6 +12,10 @@ mimic-code/
 __pycache__
 .env
 
+*.png
+*.jpg
+*.jpeg
+
 # mimic repo
 mimic-code/
 # MacOS file
