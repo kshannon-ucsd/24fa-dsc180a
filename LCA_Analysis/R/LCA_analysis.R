@@ -108,3 +108,37 @@ save_lca_plot <- function(model, plot_dir) {
   plot(model)                 # Plot the model
   dev.off()                   # Close the device
 }
+
+#' Create Directories if They Do Not Exist
+#'
+#' This function checks if the specified directories exist and creates them if they do not.
+#'
+#' @param raw_data_path Character. Path to the raw data directory. Defaults to "../data/raw_data/".
+#' @param processed_data_path Character. Path to the processed data directory. Defaults to "../data/processed_data/".
+#'
+#' @return Prints a message indicating whether each directory was created or already exists.
+#' @examples
+#' # Use default paths
+#' create_directories()
+#'
+#' # Use custom paths
+#' create_directories("custom/raw_data", "custom/processed_data")
+#'
+#' @export
+create_directories <- function(raw_data_path = "../data/raw_data/", processed_data_path = "../data/processed_data/") {
+  # Create the raw_data directory if it does not exist
+  if (!dir.exists(raw_data_path)) {
+    dir.create(raw_data_path, recursive = TRUE)
+    cat("Created directory:", raw_data_path, "\n")
+  } else {
+    cat("Directory already exists:", raw_data_path, "\n")
+  }
+  
+  # Create the processed_data directory if it does not exist
+  if (!dir.exists(processed_data_path)) {
+    dir.create(processed_data_path, recursive = TRUE)
+    cat("Created directory:", processed_data_path, "\n")
+  } else {
+    cat("Directory already exists:", processed_data_path, "\n")
+  }
+}

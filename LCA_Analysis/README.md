@@ -26,13 +26,14 @@ The raw data for this project comes from a PostgreSQL database. Follow these ste
     ```bash
     psql "dbname=mimic user=postgres host=db port=5432 password=postgres options=--search_path=mimiciii"
     ```
-2. **Run the \copy Command**: Copy and paste the SQL script `sql_queries/utilities/raw_patient_disease_statistics.sql` into the psql command line after connecting to the database. This script will save the results to `/workspaces/environment/LCA_Analysis/data/raw_data/LCA_raw_data.csv`. Ensure that the destination directory exists before executing the command to avoid errors.
-3. **Check the CSV File Output**: Confirm that the output file, `LCA_raw_data.csv`, has been created in the specified path. Ensure the path has write permissions. If you encounter a “No such file or directory” error, verify that the directory exists and has appropriate permissions.
+2. **Run the \copy Command**: Run `create_directories` in `LCA_analysis.ipynb` to create necessary data folder. Then, copy and paste the SQL script `sql_queries/utilities/raw_patient_disease_statistics.sql` into the psql command line after connecting to the database. This script will save the results to `/workspaces/LCA_Analysis/data/raw_data/LCA_raw_data.csv`. Ensure that the destination directory exists before executing the command to avoid errors. Also, copy and paste the SQL script `sql_queries/utilities/import_tables_LCA_post_analysis.sql` to create 5 tables for the visualization for LCA_post_analysis
+
+3. **Check the CSV File Output**: Confirm that the output file, `LCA_raw_data.csv`, and `angus.csv`, `oasis.csv`, `patients.csv`, `sepsis.csv`, `sofa.csv` have been created in the specified path. Ensure the path has write permissions. If you encounter a “No such file or directory” error, verify that the directory exists and has appropriate permissions.
 
 
 ## Analysis Workflow
 1. **Data Preprocessing**:
-   - Data is cleaned and preprocessed to ensure consistency and reliability in `LCA_analysis.ipynb` notebook through functions from `utils/data_processing.py`.
+   - Data is cleaned and preprocessed to ensure consistency and reliability in `LCA_analysis.ipynb` notebook through functions from `utils/data_preprocessing.py`.
    - The selected features (`admission_type`, `gender`, `age_at_admission`, `30 Elixhauser indices`) are prepared for analysis.
 
 2. **LCA Execution**:
@@ -43,7 +44,7 @@ The raw data for this project comes from a PostgreSQL database. Follow these ste
    - Visualizations are created to illustrate the distribution and key attributes of the identified classes.
 
 ## Results
-The final outputs, including subgroup characteristics and LCA plots, can be found in the `plots/` directory. These visualizations provide insights into how different patient groups are defined based on the selected features.
+The final outputs, including subgroup characteristics and LCA plots, can be found in the `output/plots/` directory. These visualizations provide insights into how different patient groups are defined based on the selected features.
 
 ## Dependencies
 - Python (version 3.x)
@@ -53,5 +54,5 @@ The final outputs, including subgroup characteristics and LCA plots, can be foun
 ## Usage
 1. Open and run `LCA_analysis.ipynb` to perform the LCA on the dataset.
 2. Run `LCA_post_analysis.ipynb` to interpret and visualize the results.
-3. Review the generated plots in the `plots/` directory for a comprehensive understanding of the subgroups.
+3. Review the generated plots in the `output/plots/` directory for a comprehensive understanding of the subgroups.
 
