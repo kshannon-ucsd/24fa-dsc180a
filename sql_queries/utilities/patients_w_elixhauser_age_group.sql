@@ -16,7 +16,7 @@
     ON 
         elixhauser_quan.hadm_id = unique_p.hadm_id
     WHERE 
-        unique_p.age_at_admission <= 95  -- Filter out ages above 95
+        unique_p.age_at_admission <= 95
         AND elixhauser_quan.congestive_heart_failure IS NOT NULL
         AND elixhauser_quan.cardiac_arrhythmias IS NOT NULL
         AND elixhauser_quan.valvular_disease IS NOT NULL
