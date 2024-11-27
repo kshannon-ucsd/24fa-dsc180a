@@ -1,19 +1,17 @@
--- SQL command to export selected patient data with Elixhauser comorbidity indicators
-COPY
+\copy
     (
     SELECT 
-        elixhauser_quan.*,  -- Select all elixhauser comorbidity indicators
+        elixhauser_quan.*,
         unique_p.age_at_admission, 
         unique_p.gender
     FROM 
-        unique_p  -- From the patient table created by the filter_patients_by_admission_and_age.sql in the sql_queries utilities folder.
+        unique_p
     LEFT JOIN 
         elixhauser_quan
     ON 
         elixhauser_quan.hadm_id = unique_p.hadm_id
     WHERE 
-        unique_p.age_at_admission <= 95  -- Filter out ages above 95
-        -- Additional filters to ensure only patients with non-null values are included
+        unique_p.age_at_admission <= 95
         AND elixhauser_quan.congestive_heart_failure IS NOT NULL
         AND elixhauser_quan.cardiac_arrhythmias IS NOT NULL
         AND elixhauser_quan.valvular_disease IS NOT NULL
@@ -45,5 +43,5 @@ COPY
         AND elixhauser_quan.psychoses IS NOT NULL
         AND elixhauser_quan.depression IS NOT NULL
     ) 
-TO '/workspaces/kmeans_clustering/data/patients_w_elixhauser_age.csv'  -- Output file path
-WITH CSV HEADER;  -- Output file format with column headers
+TO '/workspaces/kmeans_clustering/data/patients_w_elixhauser_age.csv'
+WITH CSV HEADER;

@@ -20,6 +20,10 @@ The data for this project comes from the PostgreSQL database. Follow these steps
     ```bash
     psql "dbname=mimic user=postgres host=db port=5432 password=postgres options=--search_path=mimiciii"
     ```
+3. **Run the file `filter_patients_by_admission_and_age`**  using the following command to create a view of the query that selects the subset of patients we are interested in analyzing. 
+```
+\i /workspaces/sql_queries/utilities/filter_patients_by_admission_and_age.sql
+```  
 3. **Run the \copy Command**: Copy and paste the SQL script `sql_queries/utilities/patients_w_elixhauser_age_group.sql` into the psql command line after connecting to the database. This script will save the results to `/workspaces/kmeans_clustering/data/patients_w_elixhauser_age_group.csv`. Ensure that the destination directory exists before executing the command to avoid errors. Repeat the same process for the SQL script in `sql_queries/utilities/patients_w_elixhauser_age.sql`
 4. **Check the CSV File Output**: Confirm that the output files `patients_w_elixhauser_age.csv` and `patients_w_elixhauser_age_group.csv` has been created in the specified path. Ensure the path has write permissions. If you encounter a “No such file or directory” error, verify that the directory exists and has appropriate permissions.
 

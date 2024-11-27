@@ -1,8 +1,7 @@
--- SQL command to export selected patient data with Elixhauser comorbidity indicators
-COPY (
+\copy (
     SELECT
-        elixhauser_quan.*,  -- Select all elixhauser comorbidity indicators
-        CASE  -- Determine the age group based on age at admission
+        elixhauser_quan.*,
+        CASE
             WHEN unique_p.age_at_admission BETWEEN 16 AND 24 THEN '16-24'
             WHEN unique_p.age_at_admission BETWEEN 25 AND 44 THEN '25-44'
             WHEN unique_p.age_at_admission BETWEEN 45 AND 64 THEN '45-64'
@@ -11,7 +10,7 @@ COPY (
         END AS age_group,
         unique_p.gender
     FROM 
-        unique_p  -- From the patient table created by the filter_patients_by_admission_and_age.sql in the sql_queries utilities folder.
+        unique_p
     LEFT JOIN 
         elixhauser_quan
     ON 
